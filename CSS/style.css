@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
+
+.btn-regular {
+    background-color: transparent;
+    border-radius: 0;
+    padding-top: 10px;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+}
+.btn-regular:hover {
+    background-color:#EF1F45
+}
+.hour, .minute, .second {
+    font-size: 16px;
+}
+.btn-plus {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+#task-cli {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+#task-des {
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+#task-title {
+    background-color: #fff;
+    color: #dc143c;
+    margin-bottom: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 10px 5px 5px 41px;
+}
+#cad-title {
+    background-color: #fff;
+    color: #dc143c;
+    margin-bottom: 0;
+    padding: 10px 5px 5px 15px;
+}
+#task-btn {}
+.cadastro {
+    margin-top: 4%;
+}
+.task h3,
+h4 {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.task {
+    float: left;
+    width: 100%;
+    padding: 25px;
+}
+.task {
+    border: 2px solid #fff;
+    border-top: 0;
+}
+.task:nth-child(even) {
+    background-color: #EF1F45;
+    border-top: 0px solid #fff;
+}
+.task:nth-child(odd) {}
+table td[class*="col-"],
+table th[class*="col-"] {
+    display: table-cell;
+    float: left;
+    position: static;
+}

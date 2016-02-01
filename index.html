@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>REDPRINT - Project Manager</title>
+
+    <script type="text/javascript" src="JS/functions.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css" />
+    <script src="JS/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/jquery-ui.css" />
+
+    <script>
+        $(function() {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</head>
+
+<body>
+    <section class="cadastro">
+        <div class="container">
+            <div class="row">
+                <form class="col-md-3" id="cadastroprojetos">
+
+                    <h4 id="cad-title">Cadastro</h4>
+
+                    <div class="form-group">
+                        <input placeholder="ID" onkeypress='validate(event)' class="form-control" type="text" id="txtID" />
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Projeto" class="form-control" type="text" id="projeto" />
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Data de entrega" class="form-control" type="text" id="datepicker" />
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Cliente" class="form-control" type="text" id="cliente" />
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Descrição" class="form-control" type="text" id="descricao"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-regular" id="btnSave" />
+                    </div>
+                </form>        
+                <div class="col-md-9">
+                    <div id="projetos">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <script>
+            function validate(evt) {
+                var theEvent = evt || window.event;
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+                var regex = /[0-9]|\./;
+                if (!regex.test(key)) {
+                    theEvent.returnValue = false;
+                    if (theEvent.preventDefault) theEvent.preventDefault();
+                }
+            }
+        </script>
+    </footer>
+</body>
+
+</html>
