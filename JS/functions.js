@@ -13,24 +13,33 @@ $(function(){
 	function Add(){
 		var client = JSON.stringify({
 			ID    : $("#txtID").val(),
-			Name  : $("#projeto").val(),
-			Phone : $("#cliente").val(),
-            Dueto : $("#datepicker").val(),
-			Email : $("#descricao").val()
+			Personagem  : $("#personagem").val(),
+			Jogador : $("#jogador").val(),
+            Raca : $("#raca").val(),
+			Classe : $("#classe").val(),
+            Forca : $("#forca").val(),
+            Destreza : $("#destreza").val(),
+            Inteligencia : $("#inteligencia").val(),
+            Consti : $("#consti").val(),
 		});
 		tbClients.push(client);
 		localStorage.setItem("tbClients", JSON.stringify(tbClients));
-		alert("Tarefa salva");
+		alert("Ficha salva");
 		return true;
 	}
 
 	function Edit(){
 		tbClients[selected_index] = JSON.stringify({
 				ID    : $("#txtID").val(),
-				Name  : $("#projeto").val(),
-				Phone : $("#cliente").val(),
-                Dueto : $("#datepicker").val(),
-				Email : $("#descricao").val()
+				Personagem  : $("#personagem").val(),
+				Jogador : $("#jogador").val(),
+                Raca : $("#raca").val(),
+				Classe : $("#classe").val(),
+                Forca : $("#forca").val(),
+                Destreza : $("#destreza").val(),
+                Inteligencia : $("#inteligencia").val(),
+                Consti : $("#consti").val(),
+            
 			});//Alter the selected item on the table
 		localStorage.setItem("tbClients", JSON.stringify(tbClients));
 		alert("Tarefa editada.")
@@ -45,24 +54,27 @@ $(function(){
 	}
 
 	function List(){		
-		$("#projetos").html("");
-		$("#projetos").html(
+		$("#fichas").html("");
+		$("#fichas").html(
 			"<div>"+
-			"	<div class='col-md-12'><h4 id='task-title'>Projetos</h4></div>"+
+			"	<div class='col-md-12'><h4 id='task-title'>Personagens</h4></div>"+
 			"</div>"+
 			"<div class='tasks'>"+
 			"</div>"
 			);
 		for(var i in tbClients){
 			var cli = JSON.parse(tbClients[i]);
-		  	$("#projetos .tasks").append(
+		  	$("#fichas .tasks").append(
 
-				  						 "  <div class='task'><div class='col-md-11 col-sm-10'><h3>"+cli.Name+"</h3></div>"+
+				  						 "  <div class='task'><div class='col-md-11 col-sm-10'><h3>"+cli.Personagem+"</h3></div>"+
 										 "  <div class='col-md-1 col-sm-2'><button class='btn btn-plus' type='button' data-toggle='collapse' data-target='#"+cli.ID+"' aria-expanded='false' aria-controls="+cli.ID+"><i class='fa fa-plus-circle fa-2x'></i></button></div>"+
 										 "  <div class='collapse' id="+cli.ID+"> "+
-                				         "	<div id='task-cli' class='col-md-8'><h4>Cliente: "+cli.Phone+"</h4></div><div id='task-cli' class='col-md-4'><h4>Entrega: "+cli.Dueto+"</h4></div>" + 
-										 "	<div id='task-des' class='col-md-12'><span><h6>Descrição:</h6></span><p>"+cli.Email+"</p></div>" + 
-                "<div class='timer col-md-4'><span class='hour'>00</span>:<span class='minute'>00</span>:<span class='second'>00</span></div> <div class='col-md-6 control'>      <button class='btn-plus' onClick='timer.start(1000)'><i class='fa fa-play-circle fa-2x'></i></button><button class='btn-plus' onClick='timer.stop()'><i class='fa fa-stop fa-2x'></i></button><button onClick='timer.reset(60)'>Reset</button><button onClick='timer.mode(1)'>Count up</button><button onClick='timer.mode(0)'>Count down</button></div>"+
+                				         "	<div id='task-cli' class='col-md-4'><h5>Jogador: "+cli.Jogador+"</h5></div><div id='task-cli' class='col-md-4'><h5>Raça: "+cli.Raca+"</h5></div><div id='task-cli' class='col-md-4'><h5>Classe: "+cli.Classe+"</h5></div>" + 
+										 "	<div id='task-des' class='col-md-12'><h4>Atributos</h4></div>" +
+                                         "	<div id='task-des' class='col-md-3'><span><h6>FOR:</h6></span><p>"+cli.Forca+"</p></div>" +
+                                         "	<div id='task-des' class='col-md-3'><span><h6>DES:</h6></span><p>"+cli.Destreza+"</p></div>" +
+                                         "	<div id='task-des' class='col-md-3'><span><h6>INT:</h6></span><p>"+cli.Inteligencia+"</p></div>" +
+                                         "	<div id='task-des' class='col-md-3'><span><h6>CON:</h6></span><p>"+cli.Consti+"</p></div>" +
 										 "	<div id='task-btn' class='col-md-1'><button class='btn btn-plus btnDelete' alt='Delete"+i+"' type='button' ><i class='fa fa-trash fa-2x'></i></button></div>" +
 										 "  <div class='col-md-1'><button class='btn btn-plus btnEdit' alt='Edit"+i+"' type='button' ><i class='fa fa-pencil-square fa-2x'></i></button></div>" +
                 
@@ -87,12 +99,16 @@ $(function(){
 		
 		var cli = JSON.parse(tbClients[selected_index]);
 		$("#txtID").val(cli.ID);
-		$("#projeto").val(cli.Name);
-		$("#cliente").val(cli.Phone);
-        $("#datepicker").val(cli.Dueto);        
-		$("#descricao").val(cli.Email);
+		$("#personagem").val(cli.Personagem);
+		$("#jogador").val(cli.Jogador);
+        $("#raca").val(cli.Raca);        
+		$("#classe").val(cli.Classe);
+        $("#forca").val(cli.Forca);
+        $("#destreza").val(cli.Destreza);
+        $("#inteligencia").val(cli.Inteligencia);
+        $("#consti").val(cli.Consti);
 		$("#txtID").attr("readonly","readonly");
-		$("#projeto").focus();
+		$("#personagem").focus();
 	});
 
 	$(".btnDelete").bind("click", function(){

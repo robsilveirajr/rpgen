@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <title>REDPRINT - Project Manager</title>
+    <title>O Gerador - RPG CHARACTER SHEET</title>
 
     <script type="text/javascript" src="JS/functions.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -32,13 +32,34 @@
                         <input placeholder="ID" onkeypress='validate(event)' class="form-control" type="text" id="txtID" />
                     </div>
                     <div class="form-group">
-                        <input placeholder="Projeto" class="form-control" type="text" id="projeto" />
+                        <input placeholder="Nome Personagem" class="form-control" type="text" id="personagem" />
                     </div>
                     <div class="form-group">
-                        <input placeholder="Data de entrega" class="form-control" type="text" id="datepicker" />
+                        <input placeholder="Jogador" class="form-control" type="text" id="jogador" />
                     </div>
                     <div class="form-group">
-                        <input placeholder="Cliente" class="form-control" type="text" id="cliente" />
+                        <select class="form-control" id="raca">
+                             <option>Selecione a Raça</option>
+                            <option value="humano">Humano</option>
+                            <option value="elfo">Elfo</option>
+                            <option value="anao">Anão</option>
+                            <option value="hobbit">Hobbit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="classe">
+                            <option>Selecione a Classe</option>
+                            <option value="guerreiro">Guerreiro</option>
+                            <option value="ladino">Ladino</option>
+                            <option value="mago">Mago</option>
+                            <option value="clerigo">Clérigo</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 70px;">
+                        <input placeholder="FOR"  style="width:25%;float:left;" class="form-control" type="text" id="forca" />
+                        <input placeholder="DES"  style="width:25%;float:left;" class="form-control" type="text" id="destreza" />
+                        <input placeholder="INT"  style="width:25%;float:left;" class="form-control" type="text" id="inteligencia" />
+                        <input placeholder="CON"  style="width:25%;float:left;" class="form-control" type="text" id="consti" />
                     </div>
                     <div class="form-group">
                         <textarea placeholder="Descrição" class="form-control" type="text" id="descricao"></textarea>
@@ -46,9 +67,9 @@
                     <div class="form-group">
                         <input type="submit" value="Salvar" class="btn btn-regular" id="btnSave" />
                     </div>
-                </form>        
+                </form>
                 <div class="col-md-9">
-                    <div id="projetos">
+                    <div id="fichas">
 
                     </div>
                 </div>
