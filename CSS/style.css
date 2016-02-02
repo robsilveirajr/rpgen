@@ -8,7 +8,7 @@
     border: 2px solid #fff;
 }
 .btn-regular:hover {
-    background-color:#EF1F45
+    background-color:#4576CC
 }
 .hour, .minute, .second {
     font-size: 16px;
@@ -61,7 +61,7 @@ h4 {
     border-top: 0;
 }
 .task:nth-child(even) {
-    background-color: #EF1F45;
+    background-color: #4576CC;
     border-top: 0px solid #fff;
 }
 .task:nth-child(odd) {}
