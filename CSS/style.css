@@ -71,3 +71,6 @@ table th[class*="col-"] {
     float: left;
     position: static;
 }
+.modd .form-control {
+    padding:12px 0px 10px 10px!important
+}
