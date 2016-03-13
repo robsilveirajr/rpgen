@@ -18,49 +18,114 @@
     <section class="cadastro">
         <div class="container">
             <div class="row">
-                <form class="col-md-3" id="cadastroprojetos">
+                <form class="col-md-4" id="cadastroprojetos">
+                    <a role="button" data-toggle="collapse" href="#investigador" aria-expanded="false" aria-controls="investigador">
+                        <h4 id="cad-title">Investigador</h4>
+                    </a>
 
-                    <h4 id="cad-title">Cadastro</h4>
+                    <div id="investigador" class="collapse investigador">
+                        <div class="form-group">
+                            <input placeholder="ID (Use uma ID única)" onkeypress='validate(event)' class="form-control" type="text" id="txtID" required/>
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Nome do Investigador" class="form-control" type="text" id="nomeinvestigador" />
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Nome do Jogador" class="form-control" type="text" id="jogador" />
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Ocupação" class="form-control" type="text" id="ocupacao" />
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Formação Acadêmica" class="form-control" type="text" id="formacao" />
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Local de Nascimento" class="form-control" type="text" id="localnascimento" />
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Transtornos Mentais" class="form-control" type="text" id="transtornos" />
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="sexo">
+                                <option>Selecione o sexo</option>
+                                <option value="masc">Masculino</option>
+                                <option value="fem">Feminino</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="idade" class="form-control" type="text" id="idade" />
+                        </div>
+                    </div>
+                    <a role="button" data-toggle="collapse" href="#caracteristicas" aria-expanded="false" aria-controls="caracteristicas">
+                        <h4 id="cad-title">Características e Rolamentos</h4>
+                    </a>
 
-                    <div class="form-group">
-                        <input placeholder="ID (Use uma ID única)" onkeypress='validate(event)' class="form-control" type="text" id="txtID" required/>
+                    <div id="caracteristicas" class="collapse caracteristicas">
+                        <div class="col-md-4 form-group">
+                            <label>Força</label>
+                            <input placeholder="FOR" class="form-control" type="number" id="forca" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Destreza</label>
+                            <input placeholder="DES" class="form-control" type="number" id="destreza" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Inteligencia</label>
+                            <input placeholder="INT" class="form-control" type="number" id="inteligencia" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Constituição</label>
+                            <input placeholder="CON" class="form-control" type="number" id="consti" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Tamanho</label>
+                            <input placeholder="TAM" class="form-control" type="number" id="tamanho" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Aparência</label>
+                            <input placeholder="APA" class="form-control" type="number" id="aparencia" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Sanidade</label>
+                            <input placeholder="SAN" class="form-control" type="number" id="sanidade" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Poder</label>
+                            <input placeholder="POD" class="form-control" type="number" id="poder" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Educação</label>
+                            <input placeholder="EDU" class="form-control" type="number" id="educacao" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Ideia</label>
+                            <input placeholder="Ideia" class="form-control" type="number" id="ideia" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Sorte</label>
+                            <input placeholder="Sorte" class="form-control" type="number" id="sorte" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Saber</label>
+                            <input placeholder="Saber" class="form-control" type="number" id="saber" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>99 - Mitos de Cthulhu</label>
+                            <input placeholder="Mitos" class="form-control" type="number" id="mitos" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Bonus de Dano</label>
+                            <input placeholder="Bonus" class="form-control" type="number" id="bonusdedano" />
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input placeholder="Nome Personagem" class="form-control" type="text" id="personagem" />
+                    <div id="habilidades" class="habilidades">
+                        
                     </div>
-                    <div class="form-group">
-                        <input placeholder="Jogador" class="form-control" type="text" id="jogador" />
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="raca">
-                             <option>Selecione a Raça</option>
-                            <option value="humano">Humano</option>
-                            <option value="elfo">Elfo</option>
-                            <option value="anao">Anão</option>
-                            <option value="hobbit">Hobbit</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="classe">
-                            <option>Selecione a Classe</option>
-                            <option value="guerreiro">Guerreiro</option>
-                            <option value="ladino">Ladino</option>
-                            <option value="mago">Mago</option>
-                            <option value="clerigo">Clérigo</option>
-                        </select>
-                    </div>
-                    <div class="modd form-group" style="margin-bottom: 70px;">
-                        <input placeholder="FOR"  style="width:25%;float:left;" class="form-control" type="number" id="forca" />
-                        <input placeholder="DES"  style="width:25%;float:left;" class="form-control" type="number" id="destreza" />
-                        <input placeholder="INT"  style="width:25%;float:left;" class="form-control" type="number" id="inteligencia" />
-                        <input placeholder="CON"  style="width:25%;float:left;" class="form-control" type="number" id="consti" />
-                    </div>
-
                     <div class="form-group">
                         <input type="submit" value="Salvar" class="btn btn-regular" id="btnSave" />
                     </div>
                 </form>
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <div id="fichas">
 
                     </div>
