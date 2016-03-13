@@ -1,26 +1,41 @@
 $(function(){
-	var operation = "A"; //"A"=Adding; "E"=Editing
+	var operation = "A"; //"A"=Adicionar; "E"=Editar
 
-	var selected_index = -1; //Index of the selected list item
+	var selected_index = -1; //Index da lista de itens selecionados
 
-	var tbClients = localStorage.getItem("tbClients");//Retrieve the stored data
+	var tbClients = localStorage.getItem("tbClients");//Retorna os dados guardados
 
-	tbClients = JSON.parse(tbClients); //Converts string to object
+	tbClients = JSON.parse(tbClients); //Converte string para o objeto
 
-	if(tbClients == null) //If there is no data, initialize an empty array
+	if(tbClients == null) //Se não tiver dados, inicia uma array vazia
 		tbClients = [];
 
 	function Add(){
 		var client = JSON.stringify({
 			ID    : $("#txtID").val(),
-			Personagem  : $("#personagem").val(),
+			Investigador  : $("#nomeinvestigador").val(),
 			Jogador : $("#jogador").val(),
-            Raca : $("#raca").val(),
-			Classe : $("#classe").val(),
+            Ocupacao : $("#ocupacao").val(),
+			Formacao : $("#formacao").val(),
+            Local : $("#localnascimento").val(),
+            Transtornos : $("#transtornos").val(),
+            Sexo : $("#sexo").val(),
+            Idade : $("#idade").val(),
             Forca : $("#forca").val(),
             Destreza : $("#destreza").val(),
             Inteligencia : $("#inteligencia").val(),
             Consti : $("#consti").val(),
+            Tamanho : $("#tamanho").val(),
+            Aparencia : $("#aparencia").val(),
+            Sanidade : $("#sanidade").val(),
+            Poder : $("#poder").val(),
+            Educacao : $("#educacao").val(),
+            Ideia : $("#ideia").val(),
+            Sorte : $("#sorte").val(),
+            Saber : $("#saber").val(),
+            Mitos : $("#mitos").val(),
+            Bonusdano : $("#bonusdedano").val(),
+            
 		});
 		tbClients.push(client);
 		localStorage.setItem("tbClients", JSON.stringify(tbClients));
@@ -30,15 +45,29 @@ $(function(){
 
 	function Edit(){
 		tbClients[selected_index] = JSON.stringify({
-				ID    : $("#txtID").val(),
-				Personagem  : $("#personagem").val(),
-				Jogador : $("#jogador").val(),
-                Raca : $("#raca").val(),
-				Classe : $("#classe").val(),
-                Forca : $("#forca").val(),
-                Destreza : $("#destreza").val(),
-                Inteligencia : $("#inteligencia").val(),
-                Consti : $("#consti").val(),
+			ID    : $("#txtID").val(),
+			Investigador  : $("#nomeinvestigador").val(),
+			Jogador : $("#jogador").val(),
+            Ocupacao : $("#ocupacao").val(),
+			Formacao : $("#formacao").val(),
+            Local : $("#localnascimento").val(),
+            Transtornos : $("#transtornos").val(),
+            Sexo : $("#sexo").val(),
+            Idade : $("#idade").val(),
+            Forca : $("#forca").val(),
+            Destreza : $("#destreza").val(),
+            Inteligencia : $("#inteligencia").val(),
+            Consti : $("#consti").val(),
+            Tamanho : $("#tamanho").val(),
+            Aparencia : $("#aparencia").val(),
+            Sanidade : $("#sanidade").val(),
+            Poder : $("#poder").val(),
+            Educacao : $("#educacao").val(),
+            Ideia : $("#ideia").val(),
+            Sorte : $("#sorte").val(),
+            Saber : $("#saber").val(),
+            Mitos : $("#mitos").val(),
+            Bonusdano : $("#bonusdedano").val(),
             
 			});//Alter the selected item on the table
 		localStorage.setItem("tbClients", JSON.stringify(tbClients));
@@ -50,7 +79,7 @@ $(function(){
 	function Delete(){
 		tbClients.splice(selected_index, 1);
 		localStorage.setItem("tbClients", JSON.stringify(tbClients));
-		alert("Tarefa deletada.");
+		alert("Ficha deletada.");
 	}
 
 	function List(){		
@@ -65,16 +94,79 @@ $(function(){
 		for(var i in tbClients){
 			var cli = JSON.parse(tbClients[i]);
 		  	$("#fichas .tasks").append(
-
-				  						 "  <div class='task'><div class='col-md-11 col-sm-10'><h3>"+cli.Personagem+"</h3></div>"+
-										 "  <div class='col-md-1 col-sm-2'><button class='btn btn-plus' type='button' data-toggle='collapse' data-target='#"+cli.ID+"' aria-expanded='false' aria-controls="+cli.ID+"><i class='fa fa-plus-circle fa-2x'></i></button></div>"+
-										 "  <div class='collapse' id="+cli.ID+"> "+
-                				         "	<div id='task-cli' class='col-md-4'><h5>Jogador: "+cli.Jogador+"</h5></div><div id='task-cli' class='col-md-4'><h5>Raça: "+cli.Raca+"</h5></div><div id='task-cli' class='col-md-4'><h5>Classe: "+cli.Classe+"</h5></div>" + 
-										 "	<div id='task-des' class='col-md-12'><h4>Atributos</h4></div>" +
-                                         "	<div id='task-des' class='col-md-3'><span><h6>FOR:</h6></span><p>"+cli.Forca+"</p></div>" +
-                                         "	<div id='task-des' class='col-md-3'><span><h6>DES:</h6></span><p>"+cli.Destreza+"</p></div>" +
-                                         "	<div id='task-des' class='col-md-3'><span><h6>INT:</h6></span><p>"+cli.Inteligencia+"</p></div>" +
-                                         "	<div id='task-des' class='col-md-3'><span><h6>CON:</h6></span><p>"+cli.Consti+"</p></div>" +
+                                         "  <div class='task'>"+
+                
+                                         "  <div class='col-md-11 col-sm-10'>"+
+				  						 "  <h3>"+cli.Investigador+"</h3>"+
+                                         "  </div>" +
+                
+                                         "  <div class='col-md-1 col-sm-2'>"+
+                                         "    <button class='btn btn-plus' type='button' data-toggle='collapse' data-target='#"+cli.ID+"' aria-expanded='false' aria-controls="+cli.ID+"><i class='fa fa-plus-circle fa-2x'></i></button>"+
+										 "  </div> "+
+                
+										 "  <div class='collapse' id="+cli.ID+"> " +
+                                         "  <div class='col-md-6'>" +
+                                         "  <h4>Informações</h4>" +
+                				         "	<h5><strong>Jogador:</strong> "+cli.Jogador+" </h5> " +
+                                         "  <h5><strong>Ocupação:</strong> "+cli.Ocupacao+" </h5>" + 
+                                         "  <h5><strong>Formação Acadêmica:</strong> "+cli.Formacao+" </h5> " +
+                                         "  <h5><strong>Local de Nascimento:</strong> "+cli.Local+" </h5> " +
+                                         "  <h5><strong>Transtornos Mentais:</strong> "+cli.Transtornos+" </h5> " +
+                                         "  </div>" +
+                
+										 "	<div id='task-des' class='col-md-6'>" +
+                                         "  <h4>Caracterísiticas e Rolamento</h4>" +
+                                        
+                                         "	<div class='rolamentos'>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>FOR:</h6></span><p>"+cli.Forca+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>DES:</h6></span><p>"+cli.Destreza+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>INT:</h6></span><p>"+cli.Inteligencia+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>CON:</h6></span><p>"+cli.Consti+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>TAM:</h6></span><p>"+cli.Tamanho+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>APA:</h6></span><p>"+cli.Aparencia+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>SAN:</h6></span><p>"+cli.Sanidade+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>POD:</h6></span><p>"+cli.Poder+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>EDU:</h6></span><p>"+cli.Educacao+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>Ideia:</h6></span><p>"+cli.Ideia+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>Sorte:</h6></span><p>"+cli.Sorte+"</p>" +
+                                         "  </div>" +
+                
+                                         "	<div id='task-des' class='col-md-3'>" +
+                                         "  <span><h6>Saber:</h6></span><p>"+cli.Saber+"</p>" +
+                                         "  </div>" +
+                
 										 "	<div id='task-btn' class='col-md-1'><button class='btn btn-plus btnDelete' alt='Delete"+i+"' type='button' ><i class='fa fa-trash fa-2x'></i></button></div>" +
 										 "  <div class='col-md-1'><button class='btn btn-plus btnEdit' alt='Edit"+i+"' type='button' ><i class='fa fa-pencil-square fa-2x'></i></button></div>" +
                 
